@@ -13,6 +13,10 @@ import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 //Servicios
 import { PeliculasService } from './services/peliculas.service';
 
+//Pipes
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleriaComponent } from './components/galeria/galeria.component';
+
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { PeliculasService } from './services/peliculas.service';
     HomeComponent,
     NavbarComponent,   
     BuscarComponent,
-    PeliculaComponent
+    PeliculaComponent,
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

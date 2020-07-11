@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActivatedRoute } from '@angular/router';
+import { PeliculasService } from '../../services/peliculas.service';
+ 
 @Component({
   selector: 'app-pelicula',
   templateUrl: './pelicula.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculaComponent implements OnInit {
 
-  constructor() { }
+  constructor( private route:ActivatedRoute, private pelicula:PeliculasService ) { }
 
   ngOnInit() {
-  }
+  
+
+  const peliculaid = this.route.snapshot.paramMap.get('id');
+  console.log(peliculaid);
+
+}
 
 }

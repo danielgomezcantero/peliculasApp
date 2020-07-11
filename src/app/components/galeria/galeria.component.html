@@ -1,0 +1,47 @@
+<br>
+<h1>{{ titulohome }}</h1>
+<hr>
+
+<div class="row" *ngIf="peliculashome">
+
+    <div class="col-sm-6">
+        <div class="row">
+
+            <div class="col-sm-12 div-pic-1" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[0] | peliculaImagen ) +')' }">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[1] | peliculaImagen ) +')' }">
+            </div>
+
+            <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[2] | peliculaImagen ) +')' }">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+
+        <div class="row">
+
+            <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[3] | peliculaImagen ) +')' }">
+            </div>
+
+            <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[4] | peliculaImagen ) +')' }">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12 div-pic-1" [ngStyle]="{ 'background-image':'url('+ ( peliculashome[5] | peliculaImagen ) +')' }">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

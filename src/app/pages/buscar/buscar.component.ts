@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
 import { PeliculaModel } from '../../models/pelicula.model';
+import{ Router } from '@angular/router';
 
 
 @Component({
@@ -10,11 +11,11 @@ import { PeliculaModel } from '../../models/pelicula.model';
 })
 export class BuscarComponent implements OnInit {
 
-  public imageurl: string ='image.tmdb.org/t/p/w500';
+  public imageurl: string ='http://image.tmdb.org/t/p/w500';
 
   public peliculas: any[] = [];
 
-  constructor( public peliculasService:PeliculasService ) { }
+  constructor( public peliculasService:PeliculasService, router:Router ) { }
 
   ngOnInit() {
   }
