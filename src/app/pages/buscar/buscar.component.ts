@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
 import { PeliculaModel } from '../../models/pelicula.model';
-import{ Router } from '@angular/router';
+import{ Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,13 +15,31 @@ export class BuscarComponent implements OnInit {
 
   public peliculas: any[] = [];
 
-  constructor( public peliculasService:PeliculasService, router:Router ) { }
+  buscar:string ="";
+
+  constructor( public peliculasService:PeliculasService, router:Router, route:ActivatedRoute ) {
+
+    route.params.subscribe(parametros=> {
+      
+      console.log(parametros)
+      if( parametros['textoenBuscar']){
+        this.buscar = parametros['textoenBuscar'];
+        this.buscarPeliculas();
+      }
+    } );
+   }
 
   ngOnInit() {
   }
 
-  buscarPeliculas( buscar:string ){
-      this.peliculasService.buscarPeliculas(buscar).subscribe( peliculaData=>{
+  buscarPeliculas( ){
+
+
+    if (this.buscar.length===0 ){
+      return
+    }
+    
+      this.peliculasService.buscarPeliculas(this.buscar).subscribe( peliculaData=>{
       console.log(peliculaData); 
       this.peliculas= peliculaData;
 

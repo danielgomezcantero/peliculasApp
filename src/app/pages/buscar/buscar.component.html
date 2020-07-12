@@ -3,18 +3,20 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Buscar</span>
         </div>
-        <input #buscar type="text" class="form-control" (keyup.enter)="buscarPeliculas( buscar.value )">
+        <input name="buscar" type="text" class="form-control" placeholder="Buscar una película" (keyup.enter)="buscarPeliculas()" [(ngModel)]="buscar">
     </div>
 </div>
 
-<div class="card-columns">
-    <div class="card" *ngFor="let pelicula of peliculas; let i=index">
-        <img [src]="'imageurl'" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">{{ pelicula.title}}</h5>
-            <p class="card-text">{{ pelicula.overview}}</p>
-            <a class="btn btn-outline-primary text-primary btn-block" [routerLink]="['/pelicula/{ pelicula.id }']" role="button">Ver mas..</a>
-            <a> </a>
+<div class="row">
+    <div class="card-columns">
+        <div class="card" *ngFor="let pelicula of peliculas; let i=index">
+            <img [src]="pelicula | peliculaImagen" class="card-img-top" [alt]="pelicula.original_title">
+            <div class="card-body">
+                <h5 class="card-title">{{ pelicula.title}}</h5>
+                <p class="card-text text-justify">{{ pelicula.overview | slice:0:250}}...</p>
+                <a class="btn btn-outline-primary text-primary btn-block" [routerLink]="['/pelicula/{ pelicula.id }']" role="button">Ver mas..</a>
+                <a> </a>
+            </div>
         </div>
     </div>
 </div>

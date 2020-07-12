@@ -15,6 +15,8 @@ export class PeliculasService {
   private apikey:string = '6cee1ce91f2e73cbad51cc7a92f2c6bb';
   private urlthemodb:string = 'https://api.themoviedb.org/3';
 
+  peliculas:any []=[];
+
 
   //Obtengo las peliculas que estan en cartelera durante una semana
   getCartelera(){
@@ -67,6 +69,7 @@ export class PeliculasService {
     return this.http.get( url ).pipe( map( (resp:any) => {
                                 //return this.crearArregloPeliculas(resp);                                
                                 //const peliculas : PeliculaModel [] = [];
+                                  this.peliculas= resp.results;
                                   return resp.results ;    
                               
                                 }))
