@@ -17,6 +17,16 @@ export class PeliculasService {
 
   peliculas:any []=[];
 
+  //peliculaId :string;
+
+
+
+  getPelicula( peliculaId:number){
+
+    let url=`${this.urlthemodb}/movie/${peliculaId}?api_key=${this.apikey}`;
+       return this.http.get(url).pipe(map( resp =>resp ));
+  }
+
 
   //Obtengo las peliculas que estan en cartelera durante una semana
   getCartelera(){
@@ -30,7 +40,7 @@ export class PeliculasService {
     let hastaStr = `${ hasta.getFullYear() }-0${ hasta.getMonth()+1 }-${ hasta.getDate() }`  
     console.log(desdeStr);
     console.log(hastaStr); 
-    console.log(`discover/movie?api_key=${this.apikey}&primary_release_date.gte=${ desdeStr }&primary_release_date.lte=${ hastaStr }`);
+    //console.log(`discover/movie?api_key=${this.apikey}&primary_release_date.gte=${ desdeStr }&primary_release_date.lte=${ hastaStr }`);
    
     let url =`${ this.urlthemodb }/discover/movie?api_key=${this.apikey}&primary_release_date.gte=${ desdeStr }&primary_release_date.lte=${ hastaStr }`;
  

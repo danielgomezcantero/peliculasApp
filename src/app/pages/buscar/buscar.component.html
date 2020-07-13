@@ -12,11 +12,13 @@
         <div class="card" *ngFor="let pelicula of peliculas; let i=index">
             <img [src]="pelicula | peliculaImagen" class="card-img-top" [alt]="pelicula.original_title">
             <div class="card-body">
-                <h5 class="card-title">{{ pelicula.title}}</h5>
+                <h5 class="card-title">{{ pelicula.title }}</h5>
                 <p class="card-text text-justify">{{ pelicula.overview | slice:0:250}}...</p>
-                <a class="btn btn-outline-primary text-primary btn-block" [routerLink]="['/pelicula/{ pelicula.id }']" role="button">Ver mas..</a>
+                <a class="btn btn-outline-primary text-primary btn-block" role="button" (click)="verPelicula(pelicula.id)">Ver mas...</a>
                 <a> </a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- [routerLink]="['/pelicula/{pelicula.id}']" -->

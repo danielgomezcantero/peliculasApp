@@ -17,7 +17,7 @@ export class BuscarComponent implements OnInit {
 
   buscar:string ="";
 
-  constructor( public peliculasService:PeliculasService, router:Router, route:ActivatedRoute ) {
+  constructor( public peliculasService:PeliculasService, private router:Router, route:ActivatedRoute ) {
 
     route.params.subscribe(parametros=> {
       
@@ -34,7 +34,6 @@ export class BuscarComponent implements OnInit {
 
   buscarPeliculas( ){
 
-
     if (this.buscar.length===0 ){
       return
     }
@@ -45,18 +44,22 @@ export class BuscarComponent implements OnInit {
 
       // peliculaData.forEach(data => {
       //     const pelicula:PeliculaModel=peliculaData[0];
-
       //     pelicula.id=       peliculaData[],
       //     pelicula.titulo=   peliculaData.title,
       //     pelicula.sinopsis=  peliculaData.overview,
       //     //pelicula.backdrop_image= peliculaData.
-
       //   this.peliculas.push(pelicula);
-      // });
-      
+      // });      
       // return  this.peliculas;     
       
     })
+  }
+
+  verPelicula( id:number){
+    console.log('id');
+    console.log(id);
+    this.router.navigate(['pelicula', id,'buscar']);
+
   }
 
 }
