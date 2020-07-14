@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ pelicula.title }}</h5>
                 <p class="card-text text-justify">{{ pelicula.overview | slice:0:250}}...</p>
-                <a class="btn btn-outline-primary text-primary btn-block" role="button" (click)="verPelicula(pelicula.id)">Ver mas...</a>
+                <a class="btn btn-outline-primary text-primary btn-block" role="button" (click)="verPelicula(pelicula.id, buscar)">Ver mas...</a>
                 <a> </a>
             </div>
         </div>

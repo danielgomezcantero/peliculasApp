@@ -1,18 +1,42 @@
-<div class="row" *ngIf="pelicula">
-    <div class="col-sm-6">
-        <div class="row">
-
-            <img [src]="pelicula |peliculaImagen" class="img-resonsive">
-            <!-- <div class="col-md-12" [ngStyle]="{'background-image':'url('+ ( pelicula | peliculaImagen ) +')' }">
+<div class="container animated fadeIn fast" *ngIf="pelicula">
 
 
-            </div> -->
+    <h1 class="text-left">{{ pelicula.title }}</h1>
+    <hr>
+
+    <div class="row mt-2">
+
+        <div class="col-sm-5">
+
+            <div class="col-md-12">
+
+                <img [src]="pelicula |peliculaImagen:true" class="img-thumbnail img-fluid" [alt]="pelicula.title">
+
+            </div>
+
         </div>
+
+        <div class="col-sm-7">
+            <div class="col-md-12">
+                <h3 class="text-left">Sinopsis</h3>
+                <hr>
+                <p class="text-justify">
+                    {{ pelicula.overview }}
+                </p>
+                <h4>Frase celebre</h4>
+                <p>
+                    {{ pelicula.tagline }}
+                </p>
+                <p>
+                    Popularidad: <span class="badge badge-primary">{{ pelicula.popularity | number:'.0-0'}}/10</span>
+                    <br> Voto Promedio: <span class="badge badge-primary">{{ pelicula.vote_average}}</span>
+                </p>
+
+                <button type="button" class="btn btn-outline-danger" [routerLink]="['/'+regresarA, busqueda]">Regresar</button>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="col-sm-6">
-
-
-
-    </div>
-
 </div>

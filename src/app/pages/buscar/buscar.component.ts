@@ -55,11 +55,10 @@ export class BuscarComponent implements OnInit {
     })
   }
 
-  verPelicula( id:number){
+  verPelicula( id:number, busqueda:string){
     console.log('id');
     console.log(id);
-    this.router.navigate(['pelicula', id,'buscar']);
+    this.router.navigate(['pelicula', id,'buscar', busqueda]);
 
   }
-
 }

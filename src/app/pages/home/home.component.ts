@@ -25,27 +25,27 @@ export class HomeComponent implements OnInit {
 
   getPopulares(){
     this.peliculasService.getPopulares().subscribe( peliculas =>{
-      console.log('Populares');
-      console.log(peliculas);
+      
+      console.log('Populares',peliculas);
       this.populares=peliculas;
     })
   };
 
   getCartelera(){
     this.peliculasService.getCartelera().subscribe( peliculasC =>{
-      console.log('Cartelera');
-      console.log(peliculasC);
+     
+      console.log('Cartelera',peliculasC);
       this.cartelera=peliculasC;
     })
   };
 
   getPopularesNinos(){
     this.peliculasService.getPopularesNinos().subscribe( peliculasN =>{
-        console.log('Populares Niños');
-        console.log(peliculasN);
+        console.log();
+        console.log('Populares Niños',peliculasN);
         this.popularesNinos= peliculasN;
 
-    } )
+    })
   }
 
 }
